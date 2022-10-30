@@ -1,0 +1,47 @@
+@keyframes openCross
+    0%
+        transform: rotate(0)
+    100%
+        transform: rotate(180deg)
+@keyframes closeCross
+    0%
+        transform: rotate(180deg)
+    100%
+        transform: rotate(0)
+@keyframes openCatWrapper
+    0%
+        transform-origin: top
+        transform: scaleY(0)
+    100%
+        transform-origin: top
+        transform: scaleY(1)
+
+.close
+    animation-name: closeCross
+    animation-duration: 0.3s
+    animation-fill-mode: forwards
+.open
+    animation-name: openCross
+    animation-duration: 0.3s
+    animation-fill-mode: forwards
+
+.wrapper
+    cursor: pointer
+    display: flex
+    justify-content: space-between
+    user-select: none
+.wrapper:hover
+    text-decoration: underline
+
+.item
+    animation-duration: 0.3s
+    cursor: pointer
+    animation-fill-mode: forwards
+    padding-left: 20px
+.item:hover
+    text-decoration: underline
+
+.smallCatWrapper
+    animation-name: openCatWrapper
+    animation-duration: 0.3s
+    animation-fill-mode: forwards

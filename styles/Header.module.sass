@@ -1,0 +1,90 @@
+@keyframes open
+    0%
+        transform: translateX(-100%)
+    100%
+        transform: translateX(0)
+@keyframes close
+    0%
+        transform: translateX(0)
+    100%
+        transform: translateX(-100%)
+        display: none
+
+@media (max-width: 800px)
+    .burger
+        width: 100% !important
+        *
+            text-decoration: none !important
+    .inputWrapper
+        display: none !important
+
+.burgerOpen
+    animation-duration: 0.3s
+    animation-fill-mode: forwards
+    animation-name: open 
+.burgerClose
+    animation-duration: 0.3s
+    animation-fill-mode: forwards
+    animation-name: close 
+.burgerStart
+    display: none
+
+.logo
+    min-width: 100px
+    min-height: 100px
+    background: url('../components/Header/logo.jpg')
+    background-size: cover
+    margin-right: 20px
+.burger::-webkit-scrollbar 
+    width: 0
+    height: 0
+.burger
+    padding: 20px
+    z-index: 2
+    position: fixed
+    background-color: white
+    height: 100%
+    width: 30rem
+    overflow: auto
+    -ms-overflow-style: none
+    scrollbar-width: none
+    .burgerHeader
+        display: flex
+        align-items: center
+        justify-content: space-between
+        padding: 0 0 10px 0
+        border-bottom: solid 1px #dfdfdf
+.blackout
+    position: fixed
+    z-index: 1
+    height: 100vh
+    width: 100%
+    background-color: rgba(0, 0, 0, 0.2)
+.header
+    width: 80%
+    display: flex
+    justify-content: space-between
+    align-items: center
+    margin: 0 auto 
+    padding: 5vh 0 10px 0
+    border-bottom: solid 1px #dfdfdf
+    .inputWrapper
+        position: relative
+        width: 100%
+        height: 50px
+        input
+            display: flex
+            align-items: center
+            width: 100%
+            height: 100%
+            padding-left: 55px
+            border: 0
+            border-radius: 50em
+            background-color: #f5f5f5
+            font-size: 16px
+            outline: 0
+        input:hover
+            background-color: #dfdfdf
+        input:focus
+            border: 2px solid #0058a3
+            background-color: #f5f5f5

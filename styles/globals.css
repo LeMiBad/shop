@@ -15,6 +15,22 @@ a {
   box-sizing: border-box;
 }
 
+
+.svgWrapper {
+  width: 40px;
+  height: 40px;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.svgWrapper:hover {
+  border-radius: 50px;
+  background-color: #e5e5e5;
+}
+
+
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
