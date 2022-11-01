@@ -6,12 +6,15 @@ import CrossIcon from '../svg/CrossSvg'
 import FindIcon from '../svg/FindSvg'
 import { useStore } from 'effector-react'
 import { $categories, $selectedCategory } from '../../store/burgerModel'
+import { useRouter } from 'next/router'
 
 const Header = () => {
     const [input, setInput] = useState('')
     const [isOpen, setIsOpen] = useState(css.burgerStart)
     const categories = useStore($categories)
     const selectedCategory = useStore($selectedCategory)
+
+    const router = useRouter()
 
 
     const openBurger = () => setIsOpen(css.burgerOpen)
@@ -29,7 +32,7 @@ const Header = () => {
         </div>
         {(isOpen === css.burgerOpen)? <div onClick={closeBurger} className={css.blackout}></div> : <></>}
         <header className={css.header}>
-            <div className={css.logo}></div>
+            <div onClick={() => {router.push('/')}} className={css.logo}></div>
             <div className={css.inputWrapper}>
                 <input onChange={(e: any) => setInput(e.value)} value={input} placeholder='Что вы ищете?'/>
                 <FindIcon/>

@@ -1,4 +1,4 @@
-import { LegacyRef, useRef } from 'react'
+import { useRef } from 'react'
 import css from './../../styles/Slider.module.sass'
 
 const Slider = () => {
@@ -39,20 +39,62 @@ const Slider = () => {
                 <div onClick={leftSlide} className={css.arrowContainer}>{arrowLeft()}</div>
                 <div onClick={rightSlide} className={css.arrowContainer}>{arrowRight()}</div>
             </div>
-            <div className={css.img}></div>
-            <div className={css.img}></div>
-            <div className={css.img}></div>
-            <div className={css.img}></div>
-            <div className={css.img}></div>
-            <div className={css.img}></div>
-            <div className={css.img}></div>
-            <div className={css.img}></div>
-            <div className={css.img}></div>
-            <div className={css.img}></div>
-            <div className={css.img}></div>
-            <div className={css.img}></div>
-            <div className={css.img}></div>
-            <div className={css.img}></div>
+            <div className={css.imgWrapper}>
+                <div className={css.img}></div>
+                <h5>Товар</h5>
+            </div>
+            <div className={css.imgWrapper}>
+                <div className={css.img}></div>
+                <h5>Товар</h5>
+            </div>
+            <div className={css.imgWrapper}>
+                <div className={css.img}></div>
+                <h5>Товар</h5>
+            </div>
+            <div className={css.imgWrapper}>
+                <div className={css.img}></div>
+                <h5>Товар</h5>
+            </div>
+            <div className={css.imgWrapper}>
+                <div className={css.img}></div>
+                <h5>Товар</h5>
+            </div>
+            <div className={css.imgWrapper}>
+                <div className={css.img}></div>
+                <h5>Товар</h5>
+            </div>
+            <div className={css.imgWrapper}>
+                <div className={css.img}></div>
+                <h5>Товар</h5>
+            </div>
+            <div className={css.imgWrapper}>
+                <div className={css.img}></div>
+                <h5>Товар</h5>
+            </div>
+            <div className={css.imgWrapper}>
+                <div className={css.img}></div>
+                <h5>Товар</h5>
+            </div>
+            <div className={css.imgWrapper}>
+                <div className={css.img}></div>
+                <h5>Товар</h5>
+            </div>
+            <div className={css.imgWrapper}>
+                <div className={css.img}></div>
+                <h5>Товар</h5>
+            </div>
+            <div className={css.imgWrapper}>
+                <div className={css.img}></div>
+                <h5>Товар</h5>
+            </div>
+            <div className={css.imgWrapper}>
+                <div className={css.img}></div>
+                <h5>Товар</h5>
+            </div>
+            <div className={css.imgWrapper}>
+                <div className={css.img}></div>
+                <h5>Товар</h5>
+            </div>
         </div>
     </>
 }
