@@ -1,0 +1,103 @@
+@media (max-width: 800px)
+    .slider
+        flex-direction: column
+        .photo
+            min-width: 80vw !important
+            min-height: 80vw !important
+        .mobileBuy
+            display: flex
+    .modal
+        height: 100% !important
+        width: 100% !important
+        border-radius: 0 !important
+
+@keyframes openModal
+    0%
+        transform: scale(0)
+    100%
+        transform: scale(1)
+
+.slider
+    width: 80%
+    margin: 30px auto
+    display: flex
+    .photo
+        background: url("https://forte-plast.by/assets/images/catalog/furnitura/gladilnaya-doska-s-6611-w.png")
+        background-size: contain
+        margin-right: 6%
+        min-width: 40vw
+        min-height: 40vw
+    .buyWrapper
+        display: flex
+        flex-direction: column
+        justify-content: space-between
+        h1
+            margin: 0
+            font-size: 1.5rem
+        h2
+            width: 80%
+            font-size: 1rem
+            font-weight: 400
+            margin-top: 5px
+        .buy
+            display: flex
+            justify-content: space-between
+            h1
+                display: flex
+                align-items: flex-end
+
+.button
+    background-color: #0058a3
+    color: white
+    font-weight: 600
+    font-size: 16px
+    width: 40%
+    cursor: pointer
+    padding: 15px 10%
+    border-radius: 50px
+    border: 0
+.button:hover
+    background-color: #004f93
+
+.modalWrapper
+    width: 100%
+    height: 100vh
+    z-index: 3
+    top: 0
+    position: fixed
+    background-color: rgba(0, 0, 0, 0.3)
+    display: flex
+    justify-content: center
+    align-items: center
+    .modal
+        height: 80%
+        width: 40%
+        display: flex
+        flex-direction: column
+        justify-content: space-between
+        border-radius: 50px
+        background-color: white
+        animation-name: openModal
+        animation-duration: 0.4s
+        animation-fill-mode: forwards
+        .modalHeader
+            display: flex
+            justify-content: space-between
+            padding: 10px 30px
+        h1
+            text-align: center
+        input
+            display: block
+            width: 80%
+            outline: 0
+            border: 0
+            border-radius: 10px
+            height: 40px
+            margin: 0 auto 40px auto
+            padding-left: 30px
+            background-color: #dfdede
+        input:focus
+            background-color: #d0d0d0
+    .button
+        width: 60%
+        margin: 0 auto 40px auto
