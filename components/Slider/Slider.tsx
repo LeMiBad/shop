@@ -1,6 +1,8 @@
 import { useRef } from 'react'
 import css from './../../styles/Slider.module.sass'
 
+const images = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+
 const Slider = () => {
     const arrowLeft = () => {
         return <svg style={{transform: "rotate(180deg)"}} width="20" height="20" viewBox="0 0 27 24" xmlns="http://www.w3.org/2000/svg">
@@ -39,62 +41,12 @@ const Slider = () => {
                 <div onClick={leftSlide} className={css.arrowContainer}>{arrowLeft()}</div>
                 <div onClick={rightSlide} className={css.arrowContainer}>{arrowRight()}</div>
             </div>
-            <div className={css.imgWrapper}>
-                <div className={css.img}></div>
-                <h5>Товар</h5>
-            </div>
-            <div className={css.imgWrapper}>
-                <div className={css.img}></div>
-                <h5>Товар</h5>
-            </div>
-            <div className={css.imgWrapper}>
-                <div className={css.img}></div>
-                <h5>Товар</h5>
-            </div>
-            <div className={css.imgWrapper}>
-                <div className={css.img}></div>
-                <h5>Товар</h5>
-            </div>
-            <div className={css.imgWrapper}>
-                <div className={css.img}></div>
-                <h5>Товар</h5>
-            </div>
-            <div className={css.imgWrapper}>
-                <div className={css.img}></div>
-                <h5>Товар</h5>
-            </div>
-            <div className={css.imgWrapper}>
-                <div className={css.img}></div>
-                <h5>Товар</h5>
-            </div>
-            <div className={css.imgWrapper}>
-                <div className={css.img}></div>
-                <h5>Товар</h5>
-            </div>
-            <div className={css.imgWrapper}>
-                <div className={css.img}></div>
-                <h5>Товар</h5>
-            </div>
-            <div className={css.imgWrapper}>
-                <div className={css.img}></div>
-                <h5>Товар</h5>
-            </div>
-            <div className={css.imgWrapper}>
-                <div className={css.img}></div>
-                <h5>Товар</h5>
-            </div>
-            <div className={css.imgWrapper}>
-                <div className={css.img}></div>
-                <h5>Товар</h5>
-            </div>
-            <div className={css.imgWrapper}>
-                <div className={css.img}></div>
-                <h5>Товар</h5>
-            </div>
-            <div className={css.imgWrapper}>
-                <div className={css.img}></div>
-                <h5>Товар</h5>
-            </div>
+            {images.map((item, i) => {
+                return <div key={i} className={css.imgWrapper}>
+                    <div style={{marginRight: (i === images.length-1)? '0' : '30px'}} className={css.img}></div>
+                    <h5>Товар</h5>
+                </div>
+            })}
         </div>
     </>
 }
