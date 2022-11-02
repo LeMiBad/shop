@@ -1,27 +1,27 @@
 import { useState } from "react"
 import ProductInfo from "../components/ProductInfo/ProductInfo"
 import CrossSvg from "../components/svg/CrossSvg"
-import css from './../styles/buy.module.sass'
+import css from './../styles/Buy.module.sass'
 
-const productInfo = [{name: 'Размеры', desc: '100x100см'}, {name: 'Производитель', desc: 'ООО "Северный луч'}]
+const productInfo = [{ name: 'Размеры', desc: '100x100см' }, { name: 'Производитель', desc: 'ООО "Северный луч' }]
 
 const Buy = () => {
     const [isOpen, setIsOpen] = useState(false)
 
     const modalHandler = () => {
-        if(!isOpen) setIsOpen(true)
+        if (!isOpen) setIsOpen(true)
         else setIsOpen(false)
     }
 
     const Modal = () => {
-        if(isOpen) return <>
+        if (isOpen) return <>
             <div className={css.modalWrapper}>
                 <div className={css.modal}>
                     <div>
                         <div className={css.modalHeader}>
                             <div className={css.logo}></div>
                             <div onClick={modalHandler} className={'svgWrapper'}>
-                                <CrossSvg/>
+                                <CrossSvg />
                             </div>
                         </div>
                         <h1>Форма заказа</h1>
@@ -52,7 +52,7 @@ const Buy = () => {
                 </div>
             </div>
         </div>
-        {productInfo.map(({name, desc}, i) => <ProductInfo key={i} name={name} desc={desc} id={i}/>)}
+        {productInfo.map(({ name, desc }, i) => <ProductInfo key={i} name={name} desc={desc} id={i} />)}
     </>
 }
 
