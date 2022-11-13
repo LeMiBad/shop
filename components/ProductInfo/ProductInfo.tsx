@@ -1,7 +1,13 @@
 import { useState } from 'react'
 import css from './../../styles/ProductInfo.module.sass'
 
-const ProductInfo = ({name, desc, id} : any) => {
+interface ProductInfoProps {
+    name: string 
+    desc: string
+    id: number
+}
+
+const ProductInfo:React.FC<ProductInfoProps> = ({name, desc, id}) => {
     const [isOpen, setIsOpen] = useState(false)
 
     

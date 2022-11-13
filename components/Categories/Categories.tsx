@@ -1,4 +1,5 @@
 import { useStore } from 'effector-react'
+import { useRouter } from 'next/router'
 import { $selectedCategory, selectCategory } from '../../store/burgerModel'
 import css from './../../styles/Categories.module.sass'
 
@@ -6,10 +7,13 @@ interface CategoriesProps {
     name: string
     smallCategories?: Array<string>
     id: number
+    closeFunc: Function
 }
 
-const Categories: React.FC<CategoriesProps> = ({name, smallCategories, id}) => {
+const Categories: React.FC<CategoriesProps> = ({name, smallCategories, id, closeFunc}) => {
     const selectedCategory = useStore($selectedCategory)
+    const router = useRouter()
+
 
     const crossHandler = () => {
         if(selectedCategory === -1) selectCategory(id)
@@ -17,11 +21,16 @@ const Categories: React.FC<CategoriesProps> = ({name, smallCategories, id}) => {
         else selectCategory(id)
     }
 
+    const handleLink = (subId: number) => {
+        closeFunc()
+        router.push(`/productlist/${id+1}/${subId+1}`)
+    }
+
     const smallCategory = () => {
         if(smallCategories) {
             if(smallCategories.length) return (
                 <div className={css.smallCatWrapper}>
-                    {smallCategories.map((item, i) => <h2 className={css.item} key={i}>{item}</h2>)}
+                    {smallCategories.map((item, i) => <h2 onClick={() => {handleLink(i)}} className={css.item} key={i}>{item}</h2>)}
                 </div>
             )
         }

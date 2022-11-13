@@ -1,16 +1,23 @@
 import { useRouter } from 'next/router'
 import css from './../../styles/Category.module.sass'
 
-const Category = () => {
+interface CategoryProps {
+    name: string
+    desc: string
+    id: number
+    img: string
+}
+
+const Category:React.FC<CategoryProps> = ({name, desc, id, img}) => {
     const router = useRouter()
 
     return <>
-        <div onClick={() => { router.push('/kinds') }} className={css.wrapper}>
-            <div className={css.img}></div>
+        <div onClick={() => { router.push(`/subcategory/${id}`) }} className={css.wrapper}>
+            <div style={{background: `url('${img}')`, backgroundSize: 'contain'}} className={css.img}></div>
             <div className={css.linkWrapper}>
                 <div>
-                    <h1>Домашний текстиль</h1>
-                    <h3>Домашний текстиль - это все то, что делает дом теплым, комфортным и уютным. Это покрывала и пледы, декоративные подушки, халаты и туники, постельное белье, полотенца, шторы, скатерти и салфетки</h3>
+                    <h1>{name}</h1>
+                    <h3>{desc}</h3>
                 </div>
                 <div className={css.arrowWrapper}>
                     <svg width="20" height="20" viewBox="0 0 27 24" fill="none" xmlns="http://www.w3.org/2000/svg">

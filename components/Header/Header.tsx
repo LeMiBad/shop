@@ -5,13 +5,14 @@ import BurgerIcon from '../svg/BurgerSvg'
 import CrossIcon from '../svg/CrossSvg'
 import FindIcon from '../svg/FindSvg'
 import { useStore } from 'effector-react'
-import { $categories, $selectedCategory } from '../../store/burgerModel'
+import { $selectedCategory } from '../../store/burgerModel'
 import { useRouter } from 'next/router'
+import { $data } from '../../store/allDataModel'
 
 const Header = () => {
     const [input, setInput] = useState('')
     const [isOpen, setIsOpen] = useState(css.burgerStart)
-    const categories = useStore($categories)
+    const categories = useStore($data)
     const selectedCategory = useStore($selectedCategory)
 
     const router = useRouter()
@@ -28,7 +29,7 @@ const Header = () => {
                     <CrossIcon/>
                 </div>
             </div>
-            {categories.map((category, i) => <Categories key={i} id={i} name={category.name} smallCategories={(i === selectedCategory)? category.smallCategories : []}/>)}
+            {categories.map((category, i) => <Categories closeFunc={closeBurger} key={i} id={i} name={category.name} smallCategories={(i === selectedCategory)? category.subcategory.map((sub) => sub.name) : []}/>)}
         </div>
         {(isOpen === css.burgerOpen)? <div onClick={closeBurger} className={css.blackout}></div> : <></>}
         <header className={css.header}>
