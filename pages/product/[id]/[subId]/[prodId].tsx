@@ -77,7 +77,7 @@ const Buy = () => {
                     <h2>{prodData?.desc}</h2>
                 </div>
                 <div className={css.buy}>
-                    <h1>{`${prodData?.price}0₽`}</h1>
+                    <h1>{`${prodData?.price}₽`}</h1>
                     <button className={css.button} onClick={modalHandler}>Заказать</button>
                 </div>
             </div>

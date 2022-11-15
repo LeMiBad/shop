@@ -3,14 +3,14 @@ import Categories from '../Categories/Categories'
 import css from './../../styles/Header.module.sass'
 import BurgerIcon from '../svg/BurgerSvg'
 import CrossIcon from '../svg/CrossSvg'
-import FindIcon from '../svg/FindSvg'
+
 import { useStore } from 'effector-react'
 import { $selectedCategory } from '../../store/burgerModel'
 import { useRouter } from 'next/router'
 import { $data } from '../../store/allDataModel'
+import HeaderFinder from '../HeaderFinder/headerFiner'
 
 const Header = () => {
-    const [input, setInput] = useState('')
     const [isOpen, setIsOpen] = useState(css.burgerStart)
     const categories = useStore($data)
     const selectedCategory = useStore($selectedCategory)
@@ -34,10 +34,7 @@ const Header = () => {
         {(isOpen === css.burgerOpen)? <div onClick={closeBurger} className={css.blackout}></div> : <></>}
         <header className={css.header}>
             <div onClick={() => {router.push('/')}} className={css.logo}></div>
-            <div className={css.inputWrapper}>
-                <input onChange={(e: any) => setInput(e.value)} value={input} placeholder='Что вы ищете?'/>
-                <FindIcon/>
-            </div>
+            {HeaderFinder()}
             <div>
                 <div onClick={openBurger} style={{marginLeft: '30px'}} className={'svgWrapper'}>
                     <BurgerIcon/>

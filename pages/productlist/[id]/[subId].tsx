@@ -55,7 +55,7 @@ const Kinds = () => {
             </Head>
             {
                 productsWithRow.map((item, i) => <div key={i} className={css.row}>
-                    {item.map((prod: any, ind: number) => (prod)? <ProductCard key={ind} id={Number(id)} subId={Number(subId)} prodId={Number(ind)+1} 
+                    {item.map((prod: any, ind: number) => (prod)? <ProductCard key={ind} id={Number(id)} subId={Number(subId)} prodId={prod.id} 
                     name={prod.name} images={prod.images} desc={prod.desc} 
                     price={prod.price}/> : <div key={ind} className={css.ProductCardStub}></div>)}
                 </div>)
