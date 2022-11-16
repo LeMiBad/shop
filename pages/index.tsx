@@ -5,6 +5,9 @@ import { $data } from "../store/allDataModel"
 
 const Main = () => {
     const data = useStore($data)
+
+    
+
     return (
         <>
             <Head>

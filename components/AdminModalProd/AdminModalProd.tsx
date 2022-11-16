@@ -1,6 +1,7 @@
 import { useStore } from 'effector-react'
 import { useRef, useState } from 'react'
 import { $data, updateProd } from '../../store/allDataModel'
+import CrossSvg from '../svg/CrossSvg'
 import css from './../../styles/Admin.module.sass'
 
 const AdminModalProd:React.FC<{url: number[], close: Function}> = ({url, close}) => {
@@ -31,9 +32,15 @@ const AdminModalProd:React.FC<{url: number[], close: Function}> = ({url, close})
     const saveImages = (form: any) => {
         let images = []
         for(let el of form.currentTarget.children) {
-            images.push(el.value)
+            images.push(el.children[0].value)
         }
         setImages(images)
+    }
+
+    const deleteImg = (i: number) => {
+        const newImages = [...images]
+        newImages.splice(i, 1)
+        setImages(newImages)
     }
 
     const saveInfo = (form: any) => {
@@ -46,19 +53,31 @@ const AdminModalProd:React.FC<{url: number[], close: Function}> = ({url, close})
         setInfo(info)
     }
 
+    const deleteInfo = (i: number) => {
+        const newInfo = [...info]
+        newInfo.splice(i, 1)
+        setInfo(newInfo)
+    }
+
     return (open)? <div className={css.wrapper}>
+        <div onClick={() => {close(0)}} style={{position: 'absolute', right: '10px', top: '10px'}} className={'svgWrapper'}>
+            <CrossSvg/>
+        </div>
         <input onChange={(e: any) => {setName(e.currentTarget.value)}} value={name} placeholder='Название'/>
         <input onChange={(e: any) => {setDesc(e.currentTarget.value)}} value={desc} placeholder='Описание'/>
         <input onChange={(e: any) => {setPrice(e.currentTarget.value)}} value={price} placeholder='Цена'/>
-        <form style={{display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%'}} onChange={(e: any) => {saveImages(e)}}>
-            {images.map((img, i) => <input onChange={() => {}} value={img} placeholder={`Ссылка на картинку ${i+1}`} key={i}/>)}
+        <form style={{width: '100%'}} onChange={(e: any) => {saveImages(e)}}>
+            {images.map((img, i) => <div style={{display: 'flex', alignItems: 'center', width: '100%', justifyContent: 'center' }} key={i}><input onChange={() => {}} value={img} 
+            placeholder={`Ссылка на картинку ${i+1}`} /> 
+            <div onClick={() => {deleteImg(i)}} className='svgWrapper'><CrossSvg/></div> </div>)}
         </form>
         <button type='button' onClick={() => {setImages([...images, ''])}}>Добавить картинку</button>
         <input onChange={(e: any) => {setBigDesc(e.currentTarget.value)}} value={bigDesc} placeholder='Большое описание'/>
         <form onChange={(e: any) => {saveInfo(e)}} style={{display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%'}}>
-            {info.map((info, i) => <div style={{display: 'flex'}} key={i}>
+            {info.map((info, i) => <div style={{display: 'flex', alignItems: 'center'}} key={i}>
                 <input onChange={() => {}} value={info.name} placeholder={`Заголовок ${i+1}`}/>
                 <input onChange={() => {}} value={info.body} placeholder={`Описание ${i+1}`}/>
+                <div onClick={() => {deleteInfo(i)}} className='svgWrapper'><CrossSvg/></div>
             </div>)}
         </form>
         <button type='button' onClick={() => {setInfo([...info, {name: '', body: ''}])}}>Добавить доп. описание</button>
