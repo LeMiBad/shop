@@ -82,12 +82,12 @@ const Buy = () => {
                 {images.map((img: string, i: number) => (i !== images.length-1)? <div key={i} style={{background: `url('${img}') 0% 0% / contain`, marginRight: 10}} className={css.mobilePhoto}></div> : 
                 <div key={i} style={{background: `url('${img}') 0% 0% / contain`, margin: '0'}} className={css.mobilePhoto}></div>)}
             </div>
-            {/* <div className={css.photoWrapper}>
+            <div className={css.photoWrapper}>
                 <div style={{background: `url('${prodData?.images[imgI]}')`}} className={css.photo}></div>
                 <div className={css.photoHandler}>
                     {(prodData)? prodData.images.map((img: string, i: number) => <div key={i} onClick={() => setImgI(i)} className={css.photoHandlerItem} style={{background: `url('${img}')`}}></div>): <></>}
                 </div>
-            </div> */}
+            </div>
             <div className={css.buyWrapper}>
                 <div>
                     <h1>{prodData?.name}</h1>

@@ -11,6 +11,12 @@
         width: 100% !important
         border-radius: 0 !important
         overflow: hidden !important
+    .photoMobileWrapper
+        display: flex !important
+        .mobilePhoto
+            display: block !important
+    .photoWrapper
+        display: none !important
 
 @keyframes openModal
     0%
@@ -20,12 +26,13 @@
 
 
 .photoMobileWrapper
-    display: flex
+    display: none
     min-width: 80vw
     max-width: 80vw
     overflow-x: scroll
     padding: 0
     .mobilePhoto
+        display: none
         background-size: 'contain' !important
         min-width: 80vw
         max-width: 80vw
