@@ -66,6 +66,12 @@ const Buy = () => {
         </>
     }
 
+    let images: any = []
+
+    if(prodData) {
+        images = prodData?.images
+    }
+
     return <>
         <Head>
             <title>{`YOVOY - ${title}`}</title>
@@ -73,7 +79,7 @@ const Buy = () => {
         {Modal()}
         <div className={css.slider}>
             <div className={css.photoMobileWrapper}>
-                {prodData?.images.map((img, i) => (i !== prodData?.images.length-1)? <div key={i} style={{background: `url('${img}') 0% 0% / contain`, marginRight: 10}} className={css.mobilePhoto}></div> : 
+                {images.map((img: string, i: number) => (i !== images.length-1)? <div key={i} style={{background: `url('${img}') 0% 0% / contain`, marginRight: 10}} className={css.mobilePhoto}></div> : 
                 <div key={i} style={{background: `url('${img}') 0% 0% / contain`, margin: '0'}} className={css.mobilePhoto}></div>)}
             </div>
             {/* <div className={css.photoWrapper}>
