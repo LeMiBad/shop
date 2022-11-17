@@ -26,7 +26,7 @@ const SubCategorys = () => {
             <Head>
                 <title>{`YOVOY - ${title}`}</title>
             </Head>
-            {catData?.subcategory.map((subCategor, key) => <Subcategory key={key} id={key} name={subCategor.name} products={subCategor.products} desk={subCategor.desc}/>)}
+            {catData?.subcategory.map((subCategor, key) => <Subcategory key={key} id={key} name={subCategor.name} products={subCategor.products} desc={subCategor.desc}/>)}
         </>
     )
 }

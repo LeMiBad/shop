@@ -36,6 +36,18 @@ const data = [
                             {
                                 name: 'Цвет',
                                 body: 'Зелёный'
+                            },
+                            {
+                                name: 'Страна',
+                                body: 'Россия'
+                            },
+                            {
+                                name: 'Материал',
+                                body: 'Металл'
+                            },
+                            {
+                                name: 'Осталось',
+                                body: '10'
                             }
                         ]
                     },
@@ -104,6 +116,69 @@ const data = [
                     },
                     {
                         id: 5,
+                        name: 'С цветами',
+                        desc: 'Удобная вещь в быту',
+                        price: '8600',
+                        images: [
+                            'https://forte-plast.by/assets/images/catalog/furnitura/gladilnaya-doska-s-6611-w.png',
+                            'https://idei.club/uploads/posts/2021-08/1629980968_12-idei-club-p-kvadratnaya-spalnya-gostinaya-interer-kras-14.jpg'
+                        ],
+                        bigDesc: 'Краткое описание данного товара, например размеры или производитель',
+                        info: [
+                            {
+                                name: 'Размеры',
+                                body: '100x100см'
+                            },
+                            {
+                                name: 'Производитель',
+                                body: 'ООО "Северный луч"'
+                            }
+                        ]
+                    },
+                    {
+                        id: 6,
+                        name: 'С цветами',
+                        desc: 'Удобная вещь в быту',
+                        price: '8600',
+                        images: [
+                            'https://forte-plast.by/assets/images/catalog/furnitura/gladilnaya-doska-s-6611-w.png',
+                            'https://idei.club/uploads/posts/2021-08/1629980968_12-idei-club-p-kvadratnaya-spalnya-gostinaya-interer-kras-14.jpg'
+                        ],
+                        bigDesc: 'Краткое описание данного товара, например размеры или производитель',
+                        info: [
+                            {
+                                name: 'Размеры',
+                                body: '100x100см'
+                            },
+                            {
+                                name: 'Производитель',
+                                body: 'ООО "Северный луч"'
+                            }
+                        ]
+                    },
+                    {
+                        id: 7,
+                        name: 'С цветами',
+                        desc: 'Удобная вещь в быту',
+                        price: '8600',
+                        images: [
+                            'https://forte-plast.by/assets/images/catalog/furnitura/gladilnaya-doska-s-6611-w.png',
+                            'https://idei.club/uploads/posts/2021-08/1629980968_12-idei-club-p-kvadratnaya-spalnya-gostinaya-interer-kras-14.jpg'
+                        ],
+                        bigDesc: 'Краткое описание данного товара, например размеры или производитель',
+                        info: [
+                            {
+                                name: 'Размеры',
+                                body: '100x100см'
+                            },
+                            {
+                                name: 'Производитель',
+                                body: 'ООО "Северный луч"'
+                            }
+                        ]
+                    },
+                    {
+                        id: 8,
                         name: 'С цветами',
                         desc: 'Удобная вещь в быту',
                         price: '8600',

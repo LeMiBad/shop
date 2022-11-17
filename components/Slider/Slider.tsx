@@ -51,17 +51,22 @@ const Slider:React.FC<SliderProps> = ({products, id, subId}) => {
     }
     
 
+    const handlePush = (e: any, i: number) => {
+        e.stopPropagation()
+        console.log('rgre')
+        router.push(`/product/${id}/${subId+1}/${i+1}`)
+    }
 
     return <>
         <div ref={scroll} className={css.imgContainer}>
-            <div className={css.control}>
-                <div onClick={leftSlide} className={css.arrowContainer}>{arrowLeft()}</div>
-                <div onClick={rightSlide} className={css.arrowContainer}>{arrowRight()}</div>
-            </div>
+            {/* <div className={css.control}> */}
+            <div onClick={leftSlide} className={css.arrowContainer}>{arrowLeft()}</div>
+            <div onClick={rightSlide} className={css.arrowContainer}>{arrowRight()}</div>
+            {/* </div> */}
             {products.map((prod, i) => {
-                return <div key={i} className={css.imgWrapper}>
+                return <div key={i} onClick={(e) => {handlePush(e, i)}} className={css.imgWrapper}>
                     <div style={{marginRight: (i === products.length-1)? '0' : '30px', background: `url('${prod.images[0]}')`, backgroundSize: 'contain'}} className={css.img}></div>
-                    <h5 onClick={() => router.push(`/product/${id}/${subId+1}/${i+1}`)}>{prod.name}</h5>
+                    <h5>{prod.name}</h5>
                 </div>
             })}
         </div>

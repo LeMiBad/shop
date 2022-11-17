@@ -7,29 +7,23 @@
     white-space: nowrap
     overflow-x: scroll
     overflow-y: hidden
-    .control
-        opacity: 0
-        position: absolute
-        height: 150px
-        width: 100%
+    cursor: pointer
+    .arrowContainer
         display: flex
-        justify-content: space-between
+        justify-content: center
         align-items: center
-        .arrowContainer
-            display: flex
-            justify-content: center
-            align-items: center
-            min-width: 40px
-            min-height: 40px
-            border-radius: 50px
-            background-color: rgba(0, 0, 0, 0.7)
-            cursor: pointer
-        .arrowContainer:hover
-            background-color: rgba(0, 0, 0, 1)
-        .arrowContainer:nth-child(2)
-            right: 0
-    .control:hover
-        opacity: 1
+        position: absolute
+        top: 40%
+        min-width: 40px
+        min-height: 40px
+        border-radius: 50px
+        opacity: 0
+        background-color: rgba(0, 0, 0, 0.7)
+        cursor: pointer
+    .arrowContainer:hover
+        background-color: rgba(0, 0, 0, 1)
+    .arrowContainer:nth-child(2)
+        right: 0
     .imgWrapper
         display: inline-block
         h5
@@ -48,3 +42,7 @@
     height: 0.3rem
 .imgContainer::-webkit-scrollbar-thumb
     background-color: #111
+.imgContainer:hover .arrowContainer
+    opacity: 1
+.imgWrapper:hover h5
+    text-decoration: underline

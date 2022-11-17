@@ -17,6 +17,32 @@ const Header = () => {
 
     const router = useRouter()
 
+    const url = () => {
+        const url: any = []
+        const names = []
+
+        for(let urlItem in router.query) {
+            if(router.query[urlItem]) url.push(router.query[urlItem])
+        }
+
+        if(url.length === 1) names[0] = {name: categories[+url[0]-1].name, id: url[0], url}
+        if(url.length === 2) {
+            names[0] = {name: categories[+url[0]-1].name, id: url[0], url}
+            names[1] = {name: categories[+url[0]-1].subcategory[+url[1]-1].name, id: url[1], url}
+        }
+        if(url.length === 3) {
+            names[0] = {name: categories[+url[0]-1].name, id: url[0], url}
+            names[1] = {name: categories[+url[0]-1].subcategory[+url[1]-1].name, id: url[1], url}
+            names[2] = {name: categories[+url[0]-1].subcategory[+url[1]-1].products[+url[2]-1].name, id: url[2], url}
+        }
+
+        return names
+    }
+
+    const breadHandler = (url: number[], i: number) => {
+        if(i === 2) router.push(`/subcategory/${url[0]}`)
+        if(i === 3) router.push(`/productlist/${url[0]}/${url[1]}`)
+    }
 
     const openBurger = () => setIsOpen(css.burgerOpen)
     const closeBurger = () => setIsOpen(css.burgerClose)
@@ -41,6 +67,8 @@ const Header = () => {
                 </div>
             </div>
         </header>
+        {/* <span>Бытовая химия</span><span>Крахмал - спрей для белья, одежды</span><span>Чехол для гладильной доски</span> */}
+        <div className={css.bread}><span onClick={() => {router.push('/')}}>Главная</span>{url().map((item, i) => <span onClick={() => {breadHandler(item.url, i+2)}} key={i}>{item.name}</span>)}</div>
     </>
 }
 

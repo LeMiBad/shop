@@ -5,7 +5,7 @@ import { useRouter } from 'next/router'
 
 interface CategoryProps {
     name: string
-    desk: string
+    desc: string
     products: {
         name: string;
         desc: string;
@@ -20,7 +20,7 @@ interface CategoryProps {
     id: number
 }
 
-const Subcategory = ({name, desk, products, id}: CategoryProps) => {
+const Subcategory: React.FC<CategoryProps> = ({name, desc, products, id}) => {
     const router = useRouter()
 
     const handleLink = () => router.push(`/productlist/${router.query.id}/${id+1}`)
@@ -35,7 +35,7 @@ const Subcategory = ({name, desk, products, id}: CategoryProps) => {
             </div>
             <div className={css.imgWrapper}>
                 <div className={css.deskWrapper}>
-                    <h2>{desk}</h2>
+                    <h2>{desc}</h2>
                     <Slider id={Number(router.query.id)} subId={id} products={products}/>
                 </div>
             </div>

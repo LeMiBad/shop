@@ -3,6 +3,7 @@ import Head from "next/head"
 import { useRouter } from "next/router"
 import { useState } from "react"
 import ProductInfo from "../../../../components/ProductInfo/ProductInfo"
+import Subcategory from "../../../../components/Subcategory/Subcategory"
 import CrossSvg from "../../../../components/svg/CrossSvg"
 import { $data } from "../../../../store/allDataModel"
 import css from './../../../../styles/Buy.module.sass'
@@ -12,15 +13,18 @@ const Buy = () => {
     const data = useStore($data)
     const router = useRouter()
     const {id, subId, prodId} = router.query
+    const [imgI, setImgI] = useState(0)
     
     let prodData
     let prodInfo
     let title
+    let sliderInfo
 
     for(let i = 0; i < data.length; i++) {
         if(id === String(data[i].id)) {
             for(let j = 0; j < data[i].subcategory.length; j++) {
                 if(subId === String(data[i].subcategory[j].id)) {
+                    sliderInfo = data[i].subcategory[j]
                     for(let k = 0; k < data[i].subcategory[j].products.length; k++) {
                         if(prodId === String(data[i].subcategory[j].products[k].id)) {
                             prodData = data[i].subcategory[j].products[k]
@@ -32,7 +36,6 @@ const Buy = () => {
             }
         }
     }
-
 
 
     const modalHandler = () => {
@@ -63,26 +66,35 @@ const Buy = () => {
         </>
     }
 
-
     return <>
         <Head>
             <title>{`YOVOY - ${title}`}</title>
         </Head>
         {Modal()}
         <div className={css.slider}>
-            <div style={{background: `url('${prodData?.images[0]}')`}} className={css.photo}></div>
+            <div className={css.photoMobileWrapper}>
+                {prodData?.images.map((img, i) => (i !== prodData?.images.length-1)? <div key={i} style={{background: `url('${img}') 0% 0% / contain`, marginRight: 10}} className={css.mobilePhoto}></div> : 
+                <div key={i} style={{background: `url('${img}') 0% 0% / contain`, margin: '0'}} className={css.mobilePhoto}></div>)}
+            </div>
+            {/* <div className={css.photoWrapper}>
+                <div style={{background: `url('${prodData?.images[imgI]}')`}} className={css.photo}></div>
+                <div className={css.photoHandler}>
+                    {(prodData)? prodData.images.map((img: string, i: number) => <div key={i} onClick={() => setImgI(i)} className={css.photoHandlerItem} style={{background: `url('${img}')`}}></div>): <></>}
+                </div>
+            </div> */}
             <div className={css.buyWrapper}>
                 <div>
                     <h1>{prodData?.name}</h1>
                     <h2>{prodData?.desc}</h2>
                 </div>
+                {prodInfo?.map(({ name, body }, i) => (i)? <ProductInfo key={i} name={name} desc={body} id={i} /> : <ProductInfo key={i} name={name} desc={body} id={i} />)}
                 <div className={css.buy}>
                     <h1>{`${prodData?.price}₽`}</h1>
                     <button className={css.button} onClick={modalHandler}>Заказать</button>
                 </div>
             </div>
         </div>
-        {prodInfo?.map(({ name, body }, i) => <ProductInfo key={i} name={name} desc={body} id={i} />)}
+        {(sliderInfo)? <Subcategory name='Смотрите также' desc={sliderInfo.desc} products={sliderInfo.products} id={sliderInfo.id-1}/> : <></>}
     </>
 }
 
