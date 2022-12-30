@@ -1,9 +1,26 @@
+import { useStore } from 'effector-react'
 import Head from 'next/head'
+import { useRouter } from 'next/router'
+import { useEffect } from 'react'
 import Footer from '../components/Footer/Footer'
 import Header from '../components/Header/Header'
+import { $isAcces } from '../store/adminAcces'
+import { getData, saveData } from '../store/allDataModel'
 import './../styles/globals.css'
 
 export default function App({ Component, pageProps }: any) {
+    const router = useRouter()
+    const isAcces = useStore($isAcces)
+
+    
+
+    useEffect(() => {
+        if(!isAcces) {
+            getData()
+        }
+    }, [isAcces])
+
+
     return <>
         <Head>
             <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png"/>
@@ -17,6 +34,13 @@ export default function App({ Component, pageProps }: any) {
             <meta name="theme-color" content="#ffffff"/>
         </Head>
         <Header/>
+        {isAcces? 
+            <div className={'modalAdmin'}>
+                <button onClick={() => router.push('/admin')} type='button'>В админку</button>
+                <button onClick={() => saveData()} type='button'>Сохранить</button>
+            </div> 
+            : 
+        <></>}
         <Component {...pageProps} />
         <Footer/>
     </>

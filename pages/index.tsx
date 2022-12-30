@@ -1,12 +1,12 @@
 import { useStore } from "effector-react"
 import Head from "next/head"
+import { useEffect } from "react"
 import Category from "../components/Category/Category"
-import { $data } from "../store/allDataModel"
+import { $isAcces } from "../store/adminAcces"
+import { $data, getData } from "../store/allDataModel"
 
 const Main = () => {
     const data = useStore($data)
-
-    
 
     return (
         <>

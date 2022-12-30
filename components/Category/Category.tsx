@@ -13,7 +13,7 @@ const Category:React.FC<CategoryProps> = ({name, desc, id, img}) => {
 
     return <>
         <div onClick={() => { router.push(`/subcategory/${id}`) }} className={css.wrapper}>
-            <div style={{background: `url('${img}')`, backgroundSize: 'contain'}} className={css.img}></div>
+            <div style={{background: `url('${img}')`}} className={css.img}></div>
             <div className={css.linkWrapper}>
                 <div>
                     <h1>{name}</h1>

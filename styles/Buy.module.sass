@@ -6,6 +6,8 @@
             min-height: 80vw !important
         .mobileBuy
             display: flex
+    .noMobileName
+        display: none
     .modal
         height: 100% !important
         width: 100% !important
@@ -17,6 +19,9 @@
             display: block !important
     .photoWrapper
         display: none !important
+@media (min-width: 800px)
+    .mobileBigDesc
+        display: none
 
 @keyframes openModal
     0%
@@ -46,7 +51,8 @@
     margin: 30px auto
     display: flex
     .photoWrapper
-        margin-right: 6%
+        margin-right: 2%
+        width: 100%
         .photoHandler
             margin-top: 15px
             display: flex
@@ -68,7 +74,6 @@
         width: 100%
         display: flex
         flex-direction: column
-        justify-content: space-between
         h1
             margin: 0
             font-size: 1.5rem

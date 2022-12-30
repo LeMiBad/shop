@@ -29,3 +29,27 @@ a {
   border-radius: 50px;
   background-color: #e5e5e5;
 }
+
+.modalAdmin {
+  position: fixed;
+  width: 10%;
+  height: 10%;
+  bottom: 10%;
+  left: 2%;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.modalAdmin button {
+  height: 100%;
+  cursor: pointer;
+  background-color: #e5e5e500;
+  transition: 0.2s
+}
+
+.modalAdmin button:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white
+}
