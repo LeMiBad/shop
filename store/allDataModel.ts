@@ -68,7 +68,7 @@ export const $data = createStore(data)
         const newState = [...state]
         axios.post('http://localhost:3100/save', {
             params: {
-                "body": 'gtregert'
+                body: state
             }
         })
     })

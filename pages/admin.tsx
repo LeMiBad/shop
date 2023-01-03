@@ -22,12 +22,8 @@ const Admin = () => {
         setAccesInput(e.currentTarget.value)
     }
 
-    useEffect(() => {
-        getData()
-    }, [])
-
     const modalHandler = () => {
-        if(!modalType) return <></>
+        if(!modalType) return null
         if(modalType === 'AdminModalCat') return <AdminModalCat url={url} close={setModalType}/>
         if(modalType === 'CreateAdminModalCat') return <CreateAdminModalCat close={setModalType}/>
         if(modalType === 'AdminModalSubCat') return <AdminModalSubCat url={url} close={setModalType}/>

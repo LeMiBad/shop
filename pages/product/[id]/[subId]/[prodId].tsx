@@ -92,19 +92,13 @@ const Buy = () => {
                     {(prodData)? prodData.images.map((img: string, i: number) => <div key={i} onClick={() => setImgI(i)} className={css.photoHandlerItem} style={{background: `url('${img}')`}}></div>): <></>}
                 </div>
                 <div>
-                    {/* <h1>{prodData?.name}</h1> */}
                     <h2 style={{fontSize: 14}}>{prodData?.bigDesc}</h2>
                 </div>
             </div>
             <div className={css.buyWrapper}>
                 <div className={css.noMobileName} style={{marginBottom: '15px'}}>
                     <h1>{prodData?.name}</h1>
-                    <button className={css.button} onClick={modalHandler}>Заказать</button>
                 </div>
-                {/* <div>
-                    <h1>{prodData?.name}</h1>
-                    <h2>{prodData?.bigDesc}</h2>
-                </div> */}
                 {prodInfo?.map(({ name, body }, i) => <ProductInfo key={i} name={name} desc={body} id={i} />)}
                 <div className={css.buy}>
                     <h1>{`${prodData?.price}₽`}</h1>
